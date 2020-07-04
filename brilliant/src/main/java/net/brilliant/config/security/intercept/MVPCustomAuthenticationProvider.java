@@ -1,6 +1,7 @@
 package net.brilliant.config.security.intercept;
 
-import org.assertj.core.util.Lists;
+import java.util.ArrayList;
+
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -71,6 +72,6 @@ public class MVPCustomAuthenticationProvider extends CompCore implements Authent
 	}
 
 	private Authentication buildAuthentication(){
-		return new UsernamePasswordAuthenticationToken(CommonUtility.STRING_BLANK, CommonUtility.STRING_BLANK, Lists.emptyList());
+		return new UsernamePasswordAuthenticationToken(CommonUtility.STRING_BLANK, CommonUtility.STRING_BLANK, new ArrayList<>());
 	}
 }
