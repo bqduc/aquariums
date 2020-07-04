@@ -73,12 +73,12 @@
 			<version>${version.lombok}</version>
 			<scope>provided</scope>
 		</dependency>
-
+<!-- 
 	  <dependency>
 	    <groupId>com.monitorjbl</groupId>
 	    <artifactId>xlsx-streamer</artifactId>
 	    <version>${version.xlsx-streamer}</version>
-	  </dependency>
+	  </dependency> -->
 
 	</dependencies>
 </project>
