@@ -14,8 +14,21 @@
 				<base-name>net.brilliant.i18n.CustomResourceBundle</base-name>
 				<var>messages</var>
 	    </resource-bundle>	
+	    
+	            <resource-bundle>
+            <base-name>com.github.adminfaces.template.i18n.AdminUTF8Bundle</base-name>
+            <var>adm</var>
+        </resource-bundle>
+        <system-event-listener>
+            <system-event-listener-class>com.github.adminfaces.template.event.AdminSystemEventListener</system-event-listener-class>
+            <system-event-class>javax.faces.event.PostConstructApplicationEvent</system-event-class>
+            <source-class>javax.faces.application.Application</source-class>
+        </system-event-listener>
 	
 		<resource-handler>org.omnifaces.resourcehandler.CombinedResourceHandler</resource-handler>
 	</application>
+    <factory>
+        <exception-handler-factory>com.github.adminfaces.template.exception.CustomExceptionHandlerFactory</exception-handler-factory>
+    </factory>
 
 </faces-config>
