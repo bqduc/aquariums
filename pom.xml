@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.1.RELEASE</version>
 		<relativePath />
-	</parent>	
-	
+	</parent>
+
 	<groupId>net.brilliance</groupId>
 	<artifactId>aquariums</artifactId>
 	<packaging>pom</packaging>
 	<version>0.1</version>
 	<name>Brilliant - Aggregator</name>
- 
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -43,72 +42,79 @@
 		<version.lombok>1.18.6</version.lombok>
 		<version.javax.validation>2.0.1.Final</version.javax.validation>
 		<version.joda-time>2.9.2</version.joda-time>
-		
+
 		<version.jackson-jaxrs-base>2.4.2</version.jackson-jaxrs-base>
 		<version.xlsx-streamer>2.1.0</version.xlsx-streamer>
 		<version.javafaker>0.17.2</version.javafaker>
 		<version.tika>1.22</version.tika>
-		
+
 		<version.commons-io>2.6</version.commons-io>
-		
+
 		<version.joinfaces-dependencies>4.1.4</version.joinfaces-dependencies>
 		<version.admin-template>1.1.0</version.admin-template><!-- 1.0.2 -->
 		<version.admin-theme>1.1.0</version.admin-theme>
 		<version.primefaces>8.0</version.primefaces>
-		
+
 		<version.servlet-api>3.1.0</version.servlet-api>
 		<version.javax.faces>2.3.3</version.javax.faces>
 		<version.javax.faces-api>2.3</version.javax.faces-api>
 		<version.omnifaces>1.14.1</version.omnifaces>
-		
-		<version.commons-lang3>3.10</version.commons-lang3> 
+
+		<version.commons-lang3>3.10</version.commons-lang3>
 		<version.commons-text>1.8</version.commons-text>
 	</properties>
- 
+
 	<modules>
 		<module>common-utility</module>
+		<module>brilliant-codec</module>
 		<module>brilliant-core</module>
+		<module>brilliant-core-eux</module>
+		<module>brilliant-communicator</module>
+		<module>brilliant-css-domain</module>
+		<module>brilliant-css</module>
 		<module>brilliant-i18n</module>
+		<module>brilliant-auth-domain</module>
+		<module>brilliant-auth</module>
 		<module>brilliant</module>
-    </modules>
+	</modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.9</version>
-        <configuration>
-          <additionalConfig>
-            <file>
-              <name>.settings/org.eclipse.core.resources.prefs</name>
-              <content>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<additionalConfig>
+						<file>
+							<name>.settings/org.eclipse.core.resources.prefs</name>
+							<content>
                 <![CDATA[eclipse.preferences.version=1${line.separator}encoding/<project>=${project.build.sourceEncoding}${line.separator}]]>
-              </content>
-            </file>
-          </additionalConfig>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>  
-  
+							</content>
+						</file>
+					</additionalConfig>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<repositories>
 		<repository>
 			<id>spring-milestones</id>
@@ -138,5 +144,5 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</pluginRepository>
-	</pluginRepositories>   
+	</pluginRepositories>
 </project>

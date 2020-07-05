@@ -1,16 +1,27 @@
 /**
  * 
- *//*
+ */
 package net.brilliant.servlet;
 
-*//**
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.brilliant.common.CommonUtility;
+import net.brilliant.css.service.stock.InventoryService;
+import net.brilliant.entity.stock.InventoryImage;
+import net.brilliant.framework.logging.LogService;
+
+/**
  * @author ducbq
  *
- *//*
+ */
 public class InventoryImageServlet extends ServletCore {
-	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	private static final long serialVersionUID = -456317972792601513L;
 	
 	private InventoryService inventoryService;
@@ -40,4 +51,3 @@ public class InventoryImageServlet extends ServletCore {
 	}
 	
 }
-*/

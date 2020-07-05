@@ -1,6 +1,6 @@
 /**
  * 
- *//*
+ */
 package net.brilliant.component;
 
 import java.io.IOException;
@@ -25,10 +25,10 @@ import net.brilliant.common.CommonUtility;
 import net.brilliant.framework.component.ComponentBase;
 import net.brilliant.global.GlobalConstants;
 
-*//**
+/**
  * @author ducbq
  *
- *//*
+ */
 @Component
 @Named(value = "globalDispatcher")
 //@ViewScoped
@@ -122,4 +122,3 @@ public class GlobalDispatcher extends ComponentBase {
 		return Base64.getEncoder().encodeToString(imageBytes);
 	}
 }
-*/

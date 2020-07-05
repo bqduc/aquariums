@@ -29,7 +29,9 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
+import net.brilliant.auth.comp.jwt.JsonWebTokenService;
 import net.brilliant.common.CommonConstants;
+import net.brilliant.config.jwt.JwtSecurityConfigurer;
 import net.brilliant.servlet.ServletConstants;
 
 /**
@@ -44,7 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected DigesterEncryptorReporistory encryptoReporistory;
 
 	@Inject
-	private AuthenticationProvider customAuthenticationProvider;
+	private AuthenticationProvider globalAuthenticationProvider;
 
 	@Inject
 	private AccessDeniedHandler customAccessDeniedHandler;
@@ -55,9 +57,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Inject
   private CustomAuthenticationFailureHandler authenticationFailureHandler;
 
-  /*@Inject
-  private JsonWebTokenService jwtTokenProvider;*/
-
+  @Inject
+  private JsonWebTokenService jwtTokenProvider;
 
 	@Configuration
 	@Order(1)
@@ -70,7 +71,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.httpBasic().and().csrf()
 					.disable()
 			
-					//.apply(new JwtSecurityConfigurer(jwtTokenProvider))
+					.apply(new JwtSecurityConfigurer(jwtTokenProvider))
 			;
 			
       CharacterEncodingFilter filter = new CharacterEncodingFilter();
@@ -82,7 +83,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.authenticationProvider(this.customAuthenticationProvider);
+		auth.authenticationProvider(this.globalAuthenticationProvider);
 	}
 
 	@Override
@@ -127,7 +128,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
        		.deleteCookies("JSESSIONID")
           .permitAll()
       .and()
-      	.authenticationProvider(this.customAuthenticationProvider)
+      	.authenticationProvider(this.globalAuthenticationProvider)
       	.exceptionHandling().accessDeniedHandler(this.customAccessDeniedHandler)
 
       .and()

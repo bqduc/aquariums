@@ -1,6 +1,6 @@
 /**
  * 
- *//*
+ */
 package net.brilliant.servlet;
 
 import java.io.IOException;
@@ -15,14 +15,14 @@ import net.brilliant.common.CommonUtility;
 import net.brilliant.css.service.stock.InventoryService;
 import net.brilliant.framework.logging.LogService;
 
-*//**
+/**
  * @author ducbq
  *
- *//*
+ */
 public class UserProfileImageServlet extends ServletCore {
-	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	private static final long serialVersionUID = -1741403523440066873L;
 	
 	private UserAccountService businessService;
@@ -51,4 +51,3 @@ public class UserProfileImageServlet extends ServletCore {
 	}
 	
 }
-*/

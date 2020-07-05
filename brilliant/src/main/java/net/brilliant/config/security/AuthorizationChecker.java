@@ -3,12 +3,23 @@
  */
 package net.brilliant.config.security;
 
+import java.util.List;
+
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
+import org.springframework.util.AntPathMatcher;
+import org.springframework.util.PathMatcher;
 
+import net.brilliant.auth.entity.AccessDecisionPolicy;
+import net.brilliant.auth.entity.Authority;
+import net.brilliant.auth.model.AccessDecision;
+import net.brilliant.auth.service.AccessDecisionPolicyService;
 import net.brilliant.common.CommonConstants;
+import net.brilliant.common.ListUtility;
 
 /**
  * @author ducbq
@@ -17,8 +28,8 @@ import net.brilliant.common.CommonConstants;
 @Component
 public class AuthorizationChecker {
 	
-	/*@Inject
-	private AccessDecisionPolicyService accessDecisionPolicyService;*/
+	@Inject
+	private AccessDecisionPolicyService accessDecisionPolicyService;
 
 	private boolean doCheck(HttpServletRequest request, Authentication authentication) {
 		if (authentication == null || CommonConstants.ANONYMOUS_USER.equals(authentication.getPrincipal())) {
@@ -27,7 +38,7 @@ public class AuthorizationChecker {
 
 		final String MY_ACCESSED_DECISION_POLICIES = "myAccessedDecisionPolicies";
 		boolean hasAccessedPermission = false;
-		/*List<AccessDecisionPolicy> accessDecisionPolicies = null;
+		List<AccessDecisionPolicy> accessDecisionPolicies = null;
 		List<AccessDecisionPolicy> currentADPs = null; 
 		PathMatcher pathMatcher = null;
 
@@ -53,7 +64,7 @@ public class AuthorizationChecker {
 			if (pathMatcher.match(accessDecisionPolicy.getAccessPattern(), request.getRequestURI())) {
 				hasAccessedPermission = true;
 			}
-		}*/
+		}
 		return hasAccessedPermission;
 	}
 
