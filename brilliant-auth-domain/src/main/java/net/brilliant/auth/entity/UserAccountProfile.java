@@ -115,7 +115,7 @@ public class UserAccountProfile extends SsoEntityBase implements AuthenticationD
 	private Map<String, Authority> authorityMap = new HashMap<>();
 
 	@Builder.Default
-  @OneToMany(mappedBy="userAccount", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)
+  @OneToMany(mappedBy="userAccount", cascade=CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)
   private List<UserAccountPrivilege> privileges = ListUtility.createDataList();
 	
 	@Column(name = "info", columnDefinition="text")
